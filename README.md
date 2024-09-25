@@ -1,6 +1,3 @@
-Aquí te dejo un ejemplo de cómo puedes armar el archivo `README.md` para explicar a tus compañeros cómo funciona el proyecto, desde su descarga hasta la ejecución y prueba de los diferentes métodos y vistas.
-
----
 
 # Proyecto de Ejemplo con Framework y Handlebars
 
@@ -18,7 +15,7 @@ Este es un proyecto de ejemplo para mostrar cómo funciona el framework junto co
    Clona el repositorio desde GitHub en tu computadora local:
 
    ```bash
-   git clone https://github.com/usuario/proyecto-ejemplo-adonis.git
+   git clone https://github.com/MIC43LA/pagina-todo-list-frontend.git
    ```
 
 2. **Instalar dependencias:**
@@ -128,11 +125,6 @@ Cada método del controlador renderiza una vista diferente. Aquí está la descr
   ```
 
 ## Próximos pasos
+ 
+Una vez que entiendan cómo funcionan los controladores, vistas y rutas, pueden empezar a experimentar cambiando los datos, creando nuevas vistas o añadiendo más métodos al controlador. Este proyecto es un punto de partida.
 
-Una vez que entiendan cómo funcionan los controladores, vistas y rutas, pueden empezar a experimentar cambiando los datos, creando nuevas vistas o añadiendo más métodos al controlador. ¡Este proyecto es un punto de partida para que entiendan la integración entre **AdonisJS** y **Handlebars**!
-
-Si tienen alguna pregunta o encuentran un problema, no duden en crear un issue en el repositorio de GitHub o preguntar en el grupo.
-
----
-
-Esto es un ejemplo básico para el `README.md`. Puedes ajustarlo según las necesidades de tus compañeros o cualquier detalle técnico adicional que quieras agregar.

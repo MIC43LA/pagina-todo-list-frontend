@@ -128,3 +128,4 @@ Cada método del controlador renderiza una vista diferente. Aquí está la descr
  
 Una vez que entiendan cómo funcionan los controladores, vistas y rutas, pueden empezar a experimentar cambiando los datos, creando nuevas vistas o añadiendo más métodos al controlador. Este proyecto es un punto de partida.
 
+

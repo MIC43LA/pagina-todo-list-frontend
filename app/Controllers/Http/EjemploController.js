@@ -11,7 +11,7 @@ class EjemploController {
   /*----------------------------------------------------------------------------------------------------------*/
     // metodfo 1 para manejar la solicitud GET y renderizar vista1.hbs
   async metodo1({ response }) {
-    const rutaArchivo = path.join(__dirname, '../../../resources/views/vista1.hbs') // Ruta a la plantilla Handlebars
+    const rutaArchivo = path.join(__dirname, '../../../resources/views/index.hbs') // Ruta a la plantilla Handlebars
     const plantillaCargada = fs.readFileSync(rutaArchivo, 'utf-8') // Leer el archivo de la plantilla
     const plantillaCompilada = Handlebars.compile(plantillaCargada) // Compilar la plantilla
     
@@ -31,7 +31,7 @@ class EjemploController {
   /*----------------------------------------------------------------------------------------------------------*/
   // metodo 2 para manejar la solcitud GET y renderizar vista2.hbs
   async metodo2({ response }) {
-    const rutaArchivo = path.join(__dirname, '../../../resources/views/vista2.hbs') // Ruta a la plantilla Handlebars
+    const rutaArchivo = path.join(__dirname, '../../../resources/views/examples/vista2.hbs') // Ruta a la plantilla Handlebars
     const plantillaCargada = fs.readFileSync(rutaArchivo, 'utf-8') // Leer el archivo de la plantilla
     const plantillaCompilada = Handlebars.compile(plantillaCargada) // Compilar la plantilla
     
@@ -51,7 +51,7 @@ class EjemploController {
   /*----------------------------------------------------------------------------------------------------------*/
   // Metodo 3 para manejar la solicitud GET y renderizar vista3.hbs
   async metodo3({ response }) {
-    const rutaArchivo = path.join(__dirname, '../../../resources/views/vista3.hbs') // Ruta a la plantilla Handlebars
+    const rutaArchivo = path.join(__dirname, '../../../resources/views/examples/vista3.hbs') // Ruta a la plantilla Handlebars
     const plantillaCargada = fs.readFileSync(rutaArchivo, 'utf-8') // Leer el archivo de la plantilla
     const plantillaCompilada = Handlebars.compile(plantillaCargada) // Compilar la plantilla
 

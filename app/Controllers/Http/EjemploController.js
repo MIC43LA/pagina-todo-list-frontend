@@ -20,7 +20,7 @@ class EjemploController {
   // Método 1 para manejar la solicitud GET y renderizar vista1.hbs
   async index({ response }) {
     // Ruta al layout base
-    const layoutPath = path.join(__dirname, '../../../resources/views/layouts/main.hbs')
+    const layoutPath = path.join(__dirname, '../../../resources/views/layouts/index.hbs')
     const layoutContent = fs.readFileSync(layoutPath, 'utf-8')
     const layoutTemplate = Handlebars.compile(layoutContent)
 

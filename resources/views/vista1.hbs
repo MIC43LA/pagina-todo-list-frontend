@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>titulo de pestaña:{{titulo}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tareas</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
 </head>
 <body>
-    <h1>el mensaje  = {{mensaje}}</h1>
-    <p>los datos recibidos desde el controlador: {{datosAdicionales}}</p>
+  <h1>Lista de Tareas</h1>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Estado</th>
+        <th>Fecha de Creación</th>
+        <th>Categoría</th>
+        <th>Lista</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+      <tr>
+        <td>{{id}}</td>
+        <td>{{titulo}}</td>
+        <td>{{descripcion}}</td>
+        <td>{{estado}}</td>
+        <td>{{fecha_creacion}}</td>
+        <td>{{categoria.nombre_categoria}}</td>
+        <td>{{lista.nombre_lista}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  
 </body>
 </html>

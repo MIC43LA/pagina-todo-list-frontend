@@ -40,7 +40,7 @@ body {
 .sidebar h2 {
     color: var(--color-card-text);
     text-align: center;
-    margin-bottom: 30px;
+
 }
 
 .sidebar ul {
@@ -113,3 +113,76 @@ body {
     background-color: var(--color-btn-hover);
     color: white;
 }
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+       font-size: small;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .task-summary {
+        text-align: left;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    *{
+
+        font-size: small;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+      
+    }
+
+
+    .task-card {
+        padding: 55px;
+        
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .task-summary {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .btn-floating {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+.row>*{
+    padding: 0 !important;
+}
+
+div.card{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+a.nav-link{
+    text-align: center;
+
+}
+a.nav-link:hover{
+    background-color: #eaeaea;
+}
+

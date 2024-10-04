@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@public/": [
+                "public/*"
+            ]
+        }
+    },
+    "include": [
+        "public/**/*", 
+        "public/*/.hbs"
+    ]
+}

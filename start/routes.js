@@ -9,6 +9,7 @@ const Route = use('Route')
 Route.get('/', 'EjemploController.index')
 Route.get('/dashboard', 'EjemploController.dashboard')
 Route.get('/vista3', 'EjemploController.metodo3')
+Route.post('login', 'AuthController.login')
 Route.post('register', 'AuthController.register')
 
 //localhost:3333/       - Carga la el controlador de ejemplo con el metodo 1

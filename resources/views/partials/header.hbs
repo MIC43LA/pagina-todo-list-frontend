@@ -50,7 +50,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                        <button type="button" class="btn btn-primary" id="login-button">Iniciar sesión</button>
                     </div>
                 </div>
             </div>
@@ -94,6 +94,34 @@
     </nav>
 </header>
 
+<script>
+  document.getElementById('login-button').addEventListener('click', async function () {
+    const email = document.getElementById('email-login').value;
+    const password = document.getElementById('password-login').value;
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Login exitoso!');
+        // Aquí puedes redirigir al usuario al dashboard, por ejemplo
+        window.location.href = '/dashboard';
+      } else {
+        alert(data.message || 'Error en el login');
+      }
+    } catch (error) {
+      alert('Hubo un problema al intentar iniciar sesión');
+    }
+  });
+</script>
 <script>
   document.getElementById('register-button').addEventListener('click', async function () {
     const email = document.getElementById('email-register').value;

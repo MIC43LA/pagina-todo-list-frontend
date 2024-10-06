@@ -55,9 +55,14 @@ class EjemploController {
   /*----------------------------------------------------------------------------------------------------------*/
   // metodo 2 para manejar la solcitud GET y renderizar vista2.hbs
   async dashboard({ response }) {
-    const rutaArchivo = path.join(__dirname, '../../../resources/views/dashboard.hbs') // Ruta a la plantilla Handlebars
-    const plantillaCargada = fs.readFileSync(rutaArchivo, 'utf-8') // Leer el archivo de la plantilla
-    const plantillaCompilada = Handlebars.compile(plantillaCargada) // Compilar la plantilla
+    const layoutPath = path.join(__dirname, '../../../resources/views/layouts/index.hbs')
+    const layoutContent = fs.readFileSync(layoutPath, 'utf-8')
+    const layoutTemplate = Handlebars.compile(layoutContent)
+
+    // Ruta a la vista (contenido principal)
+    const viewPath = path.join(__dirname, '../../../resources/views/dashboard.hbs')
+    const viewContent = fs.readFileSync(viewPath, 'utf-8')
+    const viewTemplate = Handlebars.compile(viewContent)
     
     // Datos que se enviaran la plantilla
     const datos = {
@@ -65,8 +70,18 @@ class EjemploController {
       mensaje: 'Esta es la segunda vista renderizada con Handlebars',
       datosAdicionales: 'Datos personalizados para la vista 2'
     }
-    
-    const html = plantillaCompilada(datos) // Renderzar la plantilla con los datos
+
+    // Renderizar la vista principal con los datos
+    const viewHtml = viewTemplate(datos)
+
+    // Datos para el layout (renderizar el contenido principal dentro del layout)
+    const layoutData = {
+      body: viewHtml, // Inserta la vista dentro del layout
+      titulo: 'Mi página con layout',
+    }
+
+    // Renderizar el layout completo con la vista dentro
+    const html = layoutTemplate(layoutData)
     response.send(html) // Enviar la respuest con la plantilla renderizada
   }
   

@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-end">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="/">
                 <img src="images/logo.png" alt="logo de la empresa" width="100" height="60" class="img-fluid">
             </a>
 
@@ -50,7 +50,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Iniciar sesión</button>
+                        <button type="button" class="btn btn-primary" id="login-button">Iniciar sesión</button>
                     </div>
                 </div>
             </div>
@@ -86,10 +86,75 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary">Registrarse</button>
+                        <button type="button" class="btn btn-primary" id="register-button">Registrarse</button>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+  document.getElementById('login-button').addEventListener('click', async function () {
+    const email = document.getElementById('email-login').value;
+    const password = document.getElementById('password-login').value;
+
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Login exitoso!');
+        // Aquí puedes redirigir al usuario al dashboard, por ejemplo
+        window.location.href = '/dashboard';
+      } else {
+        alert(data.message || 'Error en el login');
+      }
+    } catch (error) {
+      alert('Hubo un problema al intentar iniciar sesión');
+    }
+  });
+</script>
+<script>
+  document.getElementById('register-button').addEventListener('click', async function () {
+    const email = document.getElementById('email-register').value;
+    const password = document.getElementById('password-register').value;
+    const confirmPassword = document.getElementById('confirm-password-register').value;
+
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+
+    try {
+        const response = await fetch('/register', {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Registro exitoso! Ahora puedes iniciar sesión');
+            // Redirige al login o cierra el modal
+            window.location.href = '/';
+        } else {
+            // Muestra el error devuelto por el servidor o un mensaje por defecto
+            alert(data.message || `Error en el registro: ${data.error || response.statusText}`);
+        }
+    } catch (error) {
+    // Muestra cualquier error relacionado con la red o el fetch
+    alert(`Hubo un problema al intentar registrarse: ${error.message}`);
+    }
+  });
+</script>

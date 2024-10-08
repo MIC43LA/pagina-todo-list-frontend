@@ -31,5 +31,15 @@ class TaskController {
       await task.save();
       return response.json(task);
     }
+  
+    // Delete a task (Destroy)
+    async destroy({ params, response }) {
+      const task = await Task.find(params.id);
+      if (!task) {
+        return response.status(404).json({ message: 'Task not found' });
+      }
+      await task.delete();
+      return response.status(200).json({ message: 'Task deleted' });
+    }
   }
   

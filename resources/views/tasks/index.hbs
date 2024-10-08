@@ -1,0 +1,15 @@
+<h1>Task List</h1>
+
+<ul>
+  {{#each tasks}}
+    <li>
+      <a href="/tasks/{{ this.id }}">{{ this.title }}</a>
+      <form action="/tasks/{{ this.id }}" method="POST" style="display:inline">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">Delete</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+
+<a href="/tasks/create">Create New Task</a>

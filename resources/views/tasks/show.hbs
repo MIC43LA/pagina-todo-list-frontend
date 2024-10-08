@@ -1,0 +1,10 @@
+<h1>{{ task.title }}</h1>
+<p>{{ task.description }}</p>
+
+<a href="/tasks/{{ task.id }}/edit">Edit Task</a>
+<form action="/tasks/{{ task.id }}" method="POST" style="display:inline">
+  <input type="hidden" name="_method" value="DELETE">
+  <button type="submit">Delete Task</button>
+</form>
+
+<a href="/tasks">Back to Tasks List</a>

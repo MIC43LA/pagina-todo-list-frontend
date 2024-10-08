@@ -14,5 +14,12 @@ class TaskController {
       return response.json(task);
     }
 
+    // Create a new task (Store)
+    async store({ request, response }) {
+      const data = request.only(['title', 'description']);
+      const task = await Task.create(data);
+      return response.status(201).json(task);
+    }
+
   }
   
